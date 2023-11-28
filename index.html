@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>구암중학교 웨일 아이디 검색 사이트</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+  <style>
+    @keyframes fadeOut {
+      0% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    #copycoderesult, #copypwresult {
+      position: relative;
+      left: 100px;
+      display: none;
+      animation: fadeOut 2s ease-in-out;
+      font-size: 18px;
+      color: #4CAF50;
+    }
+
+    .result-container {
+      margin-top: 100px;
+    }
+
+    #codeResult, #passwordResult {
+      font-size: 20px;
+    }
+
+        button {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 5vh;
+            background-color: #f0f0f0;
+
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+  </style>
+
+
+</head>
+<body>
+
+    <div class="container mt-5">
+        <h2 class="mb-4">구암중학교 웨일 아이디 검색 사이트</h2>
+        
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label for="studentId" class="form-label">학번 입력:</label>
+                <input type="text" id="studentId" class="form-control" placeholder="예: 4111" onkeydown="if(event.key === 'Enter') search()">
+            </div>
+            <div class="col-md-6">
+                <label for="studentName" class="form-label">이름 입력:</label>
+                <input type="text" id="studentName" class="form-control" placeholder="예: 김동백 " onkeydown="if(event.key === 'Enter') search()">
+            </div>
+        </div>
+        
+        <button onclick="search()" class="btn btn-primary">검색</button>
+        
+        <div class="mt-3">
+            <p id="codeResult" class="mb-2"></p>
+            <span id="copycoderesult">아이디 복사 완료</span>
+            <p id="passwordResult" class="mb-2"></p>
+            <span id="copypwresult">비밀번호 복사 완료</span>
+        </div>
+        <button id="bebrasButton" class="custom-button"> 웨일 접속하기</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+document.getElementById("bebrasButton").addEventListener("click", function() {
+            // 버튼을 클릭했을 때 새 탭으로 열림
+            window.open("https://account.whalespace.io/s/login", "_blank");
+        });
+        const studentData = {
+            "9999": {'name': 'namesample', 'code': 'codesample', 'password': 'pwsample'},
+
+
+"1101":{'name': '강가흔', 'code': 'aa1122--@gne.go.kr'},
+"1102":{'name': '권다혜', 'code': 'guam20215201@gne.go.kr'},
+"1103":{'name': '김규리', 'code': 'guam20215401@gne.go.kr'},
+"1104":{'name': '김소진', 'code': 'guam20215103@gne.go.kr'},
+"1105":{'name': '김은진', 'code': 'guam20215305@gne.go.kr'},
+"1106":{'name': '류다현', 'code': 'guam20215107@gne.go.kr'},
+"1107":{'name': '박소율', 'code': 'guam20215207@gne.go.kr'},
+"1108":{'name': '백채은', 'code': 'guam20215308@gne.go.kr'},
+"1109":{'name': '손예림', 'code': 'guam20215412@gne.go.kr'},
+"1110":{'name': '심나래', 'code': 'guam20215115@gne.go.kr'},
+"1111":{'name': '안채원', 'code': 'guam20215212@gne.go.kr'},
+"1112":{'name': '예진하', 'code': 'guam20215415@gne.go.kr'},
+"1113":{'name': '옥태경', 'code': 'guam20215213@gne.go.kr'},
+"1114":{'name': '이수예', 'code': 'guam20215216@gne.go.kr'},
+"1115":{'name': '이예빈', 'code': 'guam20215417@gne.go.kr'},
+"1116":{'name': '이유나', 'code': 'guam20215219@gne.go.kr'},
+"1117":{'name': '이은주', 'code': 'guam20215118@gne.go.kr'},
+"1118":{'name': '장하은', 'code': 'guam20215315@gne.go.kr'},
+"1119":{'name': '정서윤', 'code': 'guam20215421@gne.go.kr'},
+"1120":{'name': '정하람', 'code': 'guam20215422@gne.go.kr'},
+"1121":{'name': '정현지', 'code': 'guam20215121@gne.go.kr'},
+"1122":{'name': '조하은', 'code': 'guam20215424@gne.go.kr'},
+"1123":{'name': '조효진', 'code': 'guam20215425@gne.go.kr'},
+"1124":{'name': '최수정', 'code': 'guam20215224@gne.go.kr'},
+"1125":{'name': '하유빈', 'code': 'guam20215322@gne.go.kr'},
+"1126":{'name': '황다예', 'code': 'guam20215325@gne.go.kr'},
+"1127":{'name': '이효송', 'code': 'guam20215314@gne.go.kr'},
+"1201":{'name': '공유정', 'code': 'guam20215101@gne.go.kr'},
+"1202":{'name': '권태희', 'code': 'guam20215203@gne.go.kr'},
+"1203":{'name': '김미지', 'code': 'guam20215102@gne.go.kr'},
+"1204":{'name': '김은서', 'code': 'guam20215403@gne.go.kr'},
+"1205":{'name': '남가은', 'code': 'guam20215205@gne.go.kr'},
+"1206":{'name': '박민서', 'code': 'guam20215408@gne.go.kr'},
+"1207":{'name': '박예슬', 'code': 'guam20215110@gne.go.kr'},
+"1208":{'name': '빈예서', 'code': 'guam20215410@gne.go.kr'},
+"1209":{'name': '송현나', 'code': 'guam20215310@gne.go.kr'},
+"1210":{'name': '심수현', 'code': '20226128@gne.go.kr'},
+"1211":{'name': '양예지', 'code': 'guam20215414@gne.go.kr'},
+"1212":{'name': '오아영', 'code': 'guam20215116@gne.go.kr'},
+"1213":{'name': '이설아', 'code': 'guam20215312@gne.go.kr'},
+"1214":{'name': '이수인', 'code': 'guam20215217@gne.go.kr'},
+"1215":{'name': '이아림', 'code': '17b17-p3197@gne.go.kr'},
+"1216":{'name': '이윤서', 'code': 'guam20215426@gne.go.kr'},
+"1217":{'name': '이채윤', 'code': 'guam20215119@gne.go.kr'},
+"1218":{'name': '임소영', 'code': 'guam20215221@gne.go.kr'},
+"1219":{'name': '정다은', 'code': 'guam20215120@gne.go.kr'},
+"1220":{'name': '정수진', 'code': '17a17-p3197@gne.go.kr'},
+"1221":{'name': '정하람', 'code': 'guam20215317@gne.go.kr'},
+"1222":{'name': '제보현', 'code': 'guam20215223@gne.go.kr'},
+"1223":{'name': '조현진', 'code': '17b22-p3197@gne.go.kr'},
+"1224":{'name': '최강희', 'code': 'guam20215122@gne.go.kr'},
+"1225":{'name': '최유주', 'code': 'guam20215320@gne.go.kr'},
+"1226":{'name': '한서현', 'code': 'guam20215126@gne.go.kr'},
+"1227":{'name': '황설아', 'code': 'guam20215225@gne.go.kr'},
+"1301":{'name': '구단우', 'code': 'guam20215327@gne.go.kr'},
+"1302":{'name': '김동욱', 'code': 'guam20215302@gne.go.kr'},
+"1303":{'name': '김우진', 'code': 'guam20226203@gne.go.kr'},
+"1304":{'name': '김준서', 'code': 'guam20215204@gne.go.kr'},
+"1305":{'name': '김태현', 'code': 'guam20215405@gne.go.kr'},
+"1306":{'name': '민가온', 'code': 'guam20215406@gne.go.kr'},
+"1307":{'name': '박민호', 'code': 'guam20215409@gne.go.kr'},
+"1308":{'name': '박준영', 'code': 'guam20215306@gne.go.kr'},
+"1309":{'name': '배예서', 'code': 'guam20215208@gne.go.kr'},
+"1310":{'name': '서채훈', 'code': 'guam20215114@gne.go.kr'},
+"1311":{'name': '윤재준', 'code': 'guam20215214@gne.go.kr'},
+"1312":{'name': '이경준', 'code': 'guam20215416@gne.go.kr'},
+"1313":{'name': '이재혁', 'code': 'guam20215313@gne.go.kr'},
+"1314":{'name': '이태경', 'code': 'guam20215220@gne.go.kr'},
+"1315":{'name': '임준엽', 'code': '17a12-p3197@gne.go.kr'},
+"1316":{'name': '전용준', 'code': '17a15-p3197@gne.go.kr'},
+"1317":{'name': '최유준', 'code': 'guam20215321@gne.go.kr'},
+"1318":{'name': '최은성', 'code': 'guam20215123@gne.go.kr'},
+"1319":{'name': '하지원', 'code': 'guam20215125@gne.go.kr'},
+"1320":{'name': '노동완', 'code': 'guam20215326@gne.go.kr'},
+"1401":{'name': '김남현', 'code': 'guam20215301@gne.go.kr'},
+"1402":{'name': '김우승', 'code': 'guam20215402@gne.go.kr'},
+"1403":{'name': '김정빈', 'code': '17a05-p3197@gne.go.kr'},
+"1404":{'name': '김지환', 'code': 'guam20215104@gne.go.kr'},
+"1405":{'name': '김형찬', 'code': 'guam20215106@gne.go.kr'},
+"1406":{'name': '류호형', 'code': 'guam20215206@gne.go.kr'},
+"1407":{'name': '박경훈', 'code': '17b09-p3197@gne.go.kr'},
+"1408":{'name': '박준서', 'code': 'guam20215112@gne.go.kr'},
+"1409":{'name': '배상준', 'code': 'guam20215307@gne.go.kr'},
+"1410":{'name': '변성빈', 'code': 'guam20215210@gne.go.kr'},
+"1411":{'name': '성준혁', 'code': 'guam20215411@gne.go.kr'},
+"1412":{'name': '유지원', 'code': 'jkilove1004@gne.go.kr'},
+"1413":{'name': '이강', 'code': 'guam20215117@gne.go.kr'},
+"1414":{'name': '임승민', 'code': 'guam20215222@gne.go.kr'},
+"1415":{'name': '전병규', 'code': 'guam20215419@gne.go.kr'},
+"1416":{'name': '정인호', 'code': 'guam20215316@gne.go.kr'},
+"1417":{'name': '최도윤', 'code': 'guam20215319@gne.go.kr'},
+"1418":{'name': '하도현', 'code': 'guam20215124@gne.go.kr'},
+"1419":{'name': '허준용', 'code': 'guam20215324@gne.go.kr'},
+"1501":{'name': '권지호', 'code': 'guam20215202@gne.go.kr'},
+"1502":{'name': '김성호', 'code': '17b03-p3197@gne.go.kr'},
+"1503":{'name': '김은수', 'code': 'guam20215304@gne.go.kr'},
+"1504":{'name': '김준우', 'code': 'guam20215404@gne.go.kr'},
+"1505":{'name': '김현우', 'code': 'guam20215105@gne.go.kr'},
+"1506":{'name': '김희범', 'code': '17a22-p3197@gne.go.kr'},
+"1507":{'name': '박제현', 'code': 'guam20215111@gne.go.kr'},
+"1508":{'name': '박진', 'code': 'guam20215113@gne.go.kr'},
+"1509":{'name': '백시우', 'code': 'guam20215209@gne.go.kr'},
+"1510":{'name': '성시후', 'code': 'guam20215211@gne.go.kr'},
+"1511":{'name': '신정욱', 'code': 'guam20215413@gne.go.kr'},
+"1512":{'name': '심주봉', 'code': 'guam226327@gne.go.kr'},
+"1513":{'name': '윤태우', 'code': 'guam20215215@gne.go.kr'},
+"1514":{'name': '이원준', 'code': 'guam20215218@gne.go.kr'},
+"1515":{'name': '임대근', 'code': 'guam20215418@gne.go.kr'},
+"1516":{'name': '정원혁', 'code': '17bb21-p3197@gne.go.kr'},
+"1517":{'name': '조남호', 'code': 'guam20215318@gne.go.kr'},
+"1518":{'name': '조윤호', 'code': 'guam20215423@gne.go.kr'},
+"1519":{'name': '한결', 'code': 'guam20215323@gne.go.kr'},
+"2101":{'name': '강보현', 'code': 'kbh90270@gne.go.kr'},
+"2102":{'name': '강지영', 'code': '16a01-p3197@gne.go.kr'},
+"2103":{'name': '강채연', 'code': '16b01-p3197@gne.go.kr'},
+"2104":{'name': '강혜진', 'code': 'khj45433@gne.go.kr'},
+"2105":{'name': '공예은', 'code': 'kyu31898@gne.go.kr'},
+"2106":{'name': '김보연', 'code': 'kby4686@gne.go.kr'},
+"2107":{'name': '김세진', 'code': 'ksj12543@gne.go.kr'},
+"2108":{'name': '김수빈', 'code': 'ksb86406@gne.go.kr'},
+"2109":{'name': '김현지', 'code': 'khj99768@gne.go.kr'},
+"2110":{'name': '박민서', 'code': 'pms31608@gne.go.kr'},
+"2111":{'name': '박보경', 'code': 'pbk35583@gne.go.kr'},
+"2112":{'name': '박선유', 'code': 'psy78676@gne.go.kr'},
+"2113":{'name': '박소연', 'code': 'psy12437@gne.go.kr'},
+"2114":{'name': '박유빈', 'code': 'pyb37376@gne.go.kr'},
+"2115":{'name': '서서연', 'code': 'ssy94072@gne.go.kr'},
+"2116":{'name': '서지빈', 'code': 'pal6219@gne.go.kr'},
+"2117":{'name': '서하은', 'code': 'she3220@gne.go.kr'},
+"2118":{'name': '안주빈', 'code': 'ajb41735@gne.go.kr'},
+"2119":{'name': '윤세인', 'code': 'ysi13845@gne.go.kr'},
+"2120":{'name': '윤소영', 'code': 'ysy78033@gne.go.kr'},
+"2121":{'name': '이예원', 'code': 'lyw1118@gne.go.kr'},
+"2122":{'name': '이은지', 'code': 'lej1120@gne.go.kr'},
+"2123":{'name': '임예원', 'code': '16b12-p3197@gne.go.kr'},
+"2124":{'name': '전유정', 'code': '16b13-p3197@gne.go.kr'},
+"2125":{'name': '정은율', 'code': 'jey1121@gne.go.kr'},
+"2201":{'name': 'ANGELA', 'code': 'angela1125@gne.go.kr'},
+"2202":{'name': '김다빈', 'code': 'kdb67088@gne.go.kr'},
+"2203":{'name': '김민영', 'code': 'kmy69076@gne.go.kr'},
+"2204":{'name': '김민주', 'code': 'kmj7411@gne.go.kr'},
+"2205":{'name': '김소양', 'code': 'ksy80711@gne.go.kr'},
+"2206":{'name': '김아윤', 'code': 'kay2333@gne.go.kr'},
+"2207":{'name': '김연희', 'code': 'kyh37250@gne.go.kr'},
+"2208":{'name': '김우정', 'code': 'kwj28462@gne.go.kr'},
+"2209":{'name': '김태은', 'code': 'kte74029@gne.go.kr'},
+"2210":{'name': '박나희', 'code': 'pnh43674@gne.go.kr'},
+"2211":{'name': '박예서', 'code': 'pys3854@gne.go.kr'},
+"2212":{'name': '박지현', 'code': 'pjh10699@gne.go.kr'},
+"2213":{'name': '서경령', 'code': 'skr93630@gne.go.kr'},
+"2214":{'name': '윤서연', 'code': 'ysy55165@gne.go.kr'},
+"2215":{'name': '윤소현', 'code': 'ysh58295@gne.go.kr'},
+"2216":{'name': '이수빈', 'code': 'lsb94729@gne.go.kr'},
+"2217":{'name': '이윤정', 'code': 'lyj43660@gne.go.kr'},
+"2218":{'name': '전민주', 'code': 'jeonminju@gne.go.kr'},
+"2219":{'name': '정혜인', 'code': 'jhi23885@gne.go.kr'},
+"2220":{'name': '최보경', 'code': 'cbk10385@gne.go.kr'},
+"2221":{'name': '최지인', 'code': 'cji70606@gne.go.kr'},
+"2222":{'name': '최현예', 'code': 'chy71983@gne.go.kr'},
+"2223":{'name': '한솔', 'code': 'hs55476@gne.go.kr'},
+"2224":{'name': '허태희', 'code': 'hth8675@gne.go.kr'},
+"2301":{'name': '강동현', 'code': 'kdh91509@gne.go.kr'},
+"2302":{'name': '김민성', 'code': 'kms97217@gne.go.kr'},
+"2303":{'name': '김민준', 'code': 'kmj71730@gne.go.kr'},
+"2304":{'name': '김서진', 'code': 'ksj36355@gne.go.kr'},
+"2305":{'name': '김지환', 'code': 'kjh56293@gne.go.kr'},
+"2306":{'name': '김진혁', 'code': 'kjh47768@gne.go.kr'},
+"2307":{'name': '박민서', 'code': 'pms67911@gne.go.kr'},
+"2308":{'name': '박수환', 'code': '16a07-p3197@gne.go.kr'},
+"2309":{'name': '박준환', 'code': 'pjh54291@gne.go.kr'},
+"2310":{'name': '신효섭', 'code': 'shs90827@gne.go.kr'},
+"2311":{'name': '오규빈', 'code': 'ogb77219@gne.go.kr'},
+"2312":{'name': '유선우', 'code': 'ysw73405@gne.go.kr'},
+"2313":{'name': '장예찬', 'code': 'kyc70272@gne.go.kr'},
+"2314":{'name': '정시우', 'code': 'jsw37390@gne.go.kr'},
+"2315":{'name': '정재빈', 'code': 'jjb92987@gne.go.kr'},
+"2316":{'name': '조현준', 'code': 'jhj55259@gne.go.kr'},
+"2317":{'name': '차민재', 'code': 'cmj62715@gne.go.kr'},
+"2318":{'name': '최경섭', 'code': 'cks26033@gne.go.kr'},
+"2319":{'name': '표세환', 'code': 'psh76407@gne.go.kr'},
+"2401":{'name': '강건', 'code': 'kk35361@gne.go.kr'},
+"2402":{'name': '강은준', 'code': 'kej83251@gne.go.kr'},
+"2403":{'name': '구동균', 'code': 'gdk22837@gne.go.kr'},
+"2404":{'name': '권지훈', 'code': 'kjh51858@gne.go.kr'},
+"2405":{'name': '김규린', 'code': 'kkr52080@gne.go.kr'},
+"2406":{'name': '김민성', 'code': 'kms40447@gne.go.kr'},
+"2407":{'name': '김우진', 'code': 'kwj6712@gne.go.kr'},
+"2408":{'name': '김윤', 'code': 'ky38309@gne.go.kr'},
+"2409":{'name': '김주환', 'code': 'kjh61989@gne.go.kr'},
+"2410":{'name': '박한민', 'code': 'phm63808@gne.go.kr'},
+"2411":{'name': '안태민', 'code': 'atm46660@gne.go.kr'},
+"2412":{'name': '윤동신', 'code': '16a11-p3197@gne.go.kr'},
+"2413":{'name': '이광은', 'code': '16a13-p3197@gne.go.kr'},
+"2414":{'name': '이민준', 'code': 'lmj18356@gne.go.kr'},
+"2415":{'name': '이화준', 'code': 'lhj0915@gne.go.kr'},
+"2416":{'name': '임형준', 'code': 'lhj94569@gne.go.kr'},
+"2417":{'name': '정지훈', 'code': 'jjh13377@gne.go.kr'},
+"2418":{'name': '정하영', 'code': 'jhy50983@gne.go.kr'},
+"2419":{'name': '주재헌', 'code': 'jjh46718@gne.go.kr'},
+"3101":{'name': '강다경', 'code': 'kdk20696@gne.go.kr'},
+"3102":{'name': '강예리', 'code': 'kyr68907@gne.go.kr'},
+"3103":{'name': '강지우', 'code': 'kjw4702@gne.go.kr'},
+"3104":{'name': '김나은', 'code': 'kne52095@gne.go.kr'},
+"3105":{'name': '김단아', 'code': 'kda21128@gne.go.kr'},
+"3106":{'name': '김민주', 'code': 'kmj98106@gne.go.kr'},
+"3107":{'name': '김보민', 'code': 'kbm94625@gne.go.kr'},
+"3108":{'name': '김효은', 'code': 'khe21144@gne.go.kr'},
+"3109":{'name': '박서영', 'code': 'psy11640@gne.go.kr'},
+"3110":{'name': '배진서', 'code': 'bjs58351@gne.go.kr'},
+"3111":{'name': '변수정', 'code': 'bsj86815@gne.go.kr'},
+"3112":{'name': '서민진', 'code': 'smj97596@gne.go.kr'},
+"3113":{'name': '서정은', 'code': 'sje89485@gne.go.kr'},
+"3114":{'name': '서지원', 'code': 'sjw34562@gne.go.kr'},
+"3115":{'name': '성윤경', 'code': 'syk49372@gne.go.kr'},
+"3116":{'name': '심은서', 'code': 'ses56618@gne.go.kr'},
+"3117":{'name': '윤소이', 'code': 'ysi97568@gne.go.kr'},
+"3118":{'name': '이가은', 'code': 'lge10653@gne.go.kr'},
+"3119":{'name': '이승현', 'code': 'lsh9245@gne.go.kr'},
+"3120":{'name': '이주희', 'code': 'ljh83016@gne.go.kr'},
+"3121":{'name': '임예주', 'code': 'iyj45315@gne.go.kr'},
+"3122":{'name': '장연지', 'code': 'jyj19555@gne.go.kr'},
+"3123":{'name': '전지언', 'code': 'jje439@gne.go.kr'},
+"3124":{'name': '정은빈', 'code': 'jeb28818@gne.go.kr'},
+"3125":{'name': '조연주', 'code': 'jyj16628@gne.go.kr'},
+"3126":{'name': '조은영', 'code': 'jey68409@gne.go.kr'},
+"3127":{'name': '황다희', 'code': 'hdh73252@gne.go.kr'},
+"3201":{'name': '강나영', 'code': 'kny78378@gne.go.kr'},
+"3202":{'name': '김나언', 'code': 'kne39008@gne.go.kr'},
+"3203":{'name': '김미소', 'code': 'kms49331@gne.go.kr'},
+"3204":{'name': '김예리', 'code': 'kyr52569@gne.go.kr'},
+"3205":{'name': '김지윤', 'code': 'kjy67565@gne.go.kr'},
+"3206":{'name': '박경희', 'code': 'pkh7624@gne.go.kr'},
+"3207":{'name': '박서영', 'code': 'psy39918@gne.go.kr'},
+"3208":{'name': '변지빈', 'code': 'bjb5473@gne.go.kr'},
+"3209":{'name': '서정아', 'code': 'sja17510@gne.go.kr'},
+"3210":{'name': '손민아', 'code': 'sma41368@gne.go.kr'},
+"3211":{'name': '송예린', 'code': 'syr88454@gne.go.kr'},
+"3212":{'name': '윤예빈', 'code': 'yyb68185@gne.go.kr'},
+"3213":{'name': '이나윤', 'code': 'lny79308@gne.go.kr'},
+"3214":{'name': '이연화', 'code': 'lyh38620@gne.go.kr'},
+"3215":{'name': '이원지', 'code': 'lwj20705@gne.go.kr'},
+"3216":{'name': '이유빈', 'code': 'lyb23345@gne.go.kr'},
+"3217":{'name': '이재윤', 'code': 'ljy48441@gne.go.kr'},
+"3218":{'name': '이주예', 'code': 'ljy67933@gne.go.kr'},
+"3219":{'name': '전나현', 'code': 'jnh52940@gne.go.kr'},
+"3220":{'name': '전효빈', 'code': 'jhb59213@gne.go.kr'},
+"3221":{'name': '정민정', 'code': 'jmj68199@gne.go.kr'},
+"3222":{'name': '정예은', 'code': 'jye2864@gne.go.kr'},
+"3223":{'name': '조현서', 'code': 'jhs24273@gne.go.kr'},
+"3224":{'name': '주채현', 'code': 'jch26030@gne.go.kr'},
+"3225":{'name': '최수진', 'code': 'csj7922@gne.go.kr'},
+"3226":{'name': '최효빈', 'code': 'chb33657@gne.go.kr'},
+"3227":{'name': '황수아', 'code': 'has41545@gne.go.kr'},
+"3301":{'name': '권보현', 'code': 'kbh86602@gne.go.kr'},
+"3302":{'name': '권운학', 'code': 'kwh23304@gne.go.kr'},
+"3303":{'name': '김건우', 'code': 'kkw62728@gne.go.kr'},
+"3304":{'name': '김경진', 'code': 'kkj73977@gne.go.kr'},
+"3305":{'name': '김시완', 'code': 'ksw47817@gne.go.kr'},
+"3306":{'name': '김정용', 'code': 'kjy13800@gne.go.kr'},
+"3307":{'name': '김정웅', 'code': 'kjw85419@gne.go.kr'},
+"3308":{'name': '김지환', 'code': 'kjh89962@gne.go.kr'},
+"3309":{'name': '박상현', 'code': 'psh41510@gne.go.kr'},
+"3310":{'name': '박시현', 'code': 'psh54326@gne.go.kr'},
+"3311":{'name': '박준서', 'code': 'pjs21914@gne.go.kr'},
+"3312":{'name': '송연호', 'code': 'syh35142@gne.go.kr'},
+"3313":{'name': '신재영', 'code': 'sjy70937@gne.go.kr'},
+"3314":{'name': '이기상', 'code': 'lks95976@gne.go.kr'},
+"3315":{'name': '이동률', 'code': 'ldr21435@gne.go.kr'},
+"3316":{'name': '이지완', 'code': 'ljw20974@gne.go.kr'},
+"3317":{'name': '정재윤', 'code': 'jjy81090@gne.go.kr'},
+"3318":{'name': '조환준', 'code': 'jhj86994@gne.go.kr'},
+"3319":{'name': '지영대', 'code': 'jyd49481@gne.go.kr'},
+"3320":{'name': '최현우', 'code': 'chw9994@gne.go.kr'},
+"3321":{'name': '최홍진', 'code': 'chj81613@gne.go.kr'},
+"3322":{'name': '황창현', 'code': 'hch40074@gne.go.kr'},
+"3323":{'name': '한상기', 'code': 'hsk66505@gne.go.kr'},
+"3401":{'name': '권대원', 'code': 'kdw41242@gne.go.kr'},
+"3402":{'name': '김성욱', 'code': 'ksw59068@gne.go.kr'},
+"3403":{'name': '김준서', 'code': 'kjs61650@gne.go.kr'},
+"3404":{'name': '김형승', 'code': 'khs59636@gne.go.kr'},
+"3405":{'name': '박지호', 'code': 'pjh18900@gne.go.kr'},
+"3406":{'name': '박채민', 'code': 'pcm14346@gne.go.kr'},
+"3407":{'name': '백진우', 'code': 'bjw6471@gne.go.kr'},
+"3408":{'name': '석배권', 'code': 'sbk17806@gne.go.kr'},
+"3409":{'name': '심태완', 'code': 'stw54627@gne.go.kr'},
+"3410":{'name': '엄푸름', 'code': 'upr6918@gne.go.kr'},
+"3411":{'name': '이무성', 'code': 'lms71014@gne.go.kr'},
+"3412":{'name': '이진홍', 'code': 'ljh45034@gne.go.kr'},
+"3413":{'name': '장은총', 'code': 'jec86268@gne.go.kr'},
+"3414":{'name': '전현우', 'code': 'jhw74138@gne.go.kr'},
+"3415":{'name': '주성찬', 'code': 'jsc10667@gne.go.kr'},
+"3416":{'name': '하승원', 'code': 'hsw75579@gne.go.kr'},
+"3417":{'name': '하지우', 'code': 'hjw66742@gne.go.kr'},
+"3418":{'name': '허균석', 'code': 'hks40510@gne.go.kr'},
+"3419":{'name': '허재성', 'code': 'hjs36786@gne.go.kr'},
+"3420":{'name': '황정우', 'code': 'hjw82858@gne.go.kr'},
+"3421":{'name': '황치신', 'code': 'hcs9176@gne.go.kr'},
+"3501":{'name': '김건주', 'code': 'kkj75151@gne.go.kr'},
+"3502":{'name': '김대한', 'code': 'kdh99045@gne.go.kr'},
+"3503":{'name': '김도영', 'code': 'kdy50218@gne.go.kr'},
+"3504":{'name': '박민준', 'code': 'pmj9533@gne.go.kr'},
+"3505":{'name': '송인호', 'code': 'sih15037@gne.go.kr'},
+"3506":{'name': '오은혁', 'code': 'oeh87262@gne.go.kr'},
+"3507":{'name': '이기찬', 'code': 'lkc80457@gne.go.kr'},
+"3508":{'name': '이부경', 'code': 'lbk95464@gne.go.kr'},
+"3509":{'name': '이유찬', 'code': 'lyc84285@gne.go.kr'},
+"3510":{'name': '이재호', 'code': 'ljh49816@gne.go.kr'},
+"3511":{'name': '이종민', 'code': 'ljm77486@gne.go.kr'},
+"3512":{'name': '임권우', 'code': 'ikw86597@gne.go.kr'},
+"3513":{'name': '장민호', 'code': 'jmh2404@gne.go.kr'},
+"3514":{'name': '전우석', 'code': 'jws70490@gne.go.kr'},
+"3515":{'name': '전효성', 'code': 'jhs44460@gne.go.kr'},
+"3516":{'name': '정석현', 'code': 'jsh19765@gne.go.kr'},
+"3517":{'name': '정지성', 'code': 'jjs31909@gne.go.kr'},
+"3518":{'name': '제희원', 'code': 'jhw13014@gne.go.kr'},
+"3519":{'name': '최준석', 'code': 'cjs14428@gne.go.kr'},
+"3520":{'name': '최지훈', 'code': 'cjh14696@gne.go.kr'},
+"3521":{'name': '홍상백', 'code': 'hsb82632@gne.go.kr'},
+"3522":{'name': '황정준', 'code': 'hjj62200@gne.go.kr'},
+"3523":{'name': '송국현', 'code': 'skh48159@gne.go.kr'},
+
+"4111":{'name': '김동백', 'code': '102@gne.go.kr'},
+
+            // 추가적인 데이터는 이곳에 계속해서 추가할 수 있습니다.
+        };
+
+        function search() {
+            const studentId = document.getElementById("studentId").value;
+            const studentName = document.getElementById("studentName").value;
+            const studentInfo = studentData[studentId];
+            const codeResultElement = document.getElementById("codeResult");
+            const passwordResultElement = document.getElementById("passwordResult");
+            
+            if (studentInfo && studentInfo.name === studentName) {
+                codeResultElement.innerHTML = `웨일 아이디: ${studentInfo.code} <button onclick="copyCodeToClipboard('${studentInfo.code}')" class="btn btn-secondary">웨일 아이디 복사하기</button>`;
+                passwordResultElement.innerHTML = `비밀번호: ${studentInfo.password} <button onclick="copyPasswordToClipboard('${studentInfo.password}')" class="btn btn-secondary">비밀번호 복사하기</button>`;
+            } else {
+                codeResultElement.innerHTML = '';
+                passwordResultElement.innerHTML = '';
+                alert('입력한 학번 또는 이름에 해당하는 정보가 없습니다.');
+            }
+        }
+
+        function copyCodeToClipboard(code) {
+            const tempInput = document.createElement('input');
+            tempInput.value = code;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            var resultSpan = document.getElementById('copycoderesult');
+	    resultSpan.style.display = 'inline';
+	    setTimeout(function() {
+ 	     resultSpan.style.display = 'none';
+	    }, 2000); // 2초 후에 숨김
+        }
+
+        function copyPasswordToClipboard(password) {
+            const tempInput = document.createElement('input');
+            tempInput.value = password;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            var resultSpan = document.getElementById('copypwresult');
+	    resultSpan.style.display = 'inline';
+	    setTimeout(function() {
+ 	     resultSpan.style.display = 'none';
+	    }, 2000); // 2초 후에 숨김
+        }
+    </script>
+
+</body>
+</html>
